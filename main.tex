@@ -1,0 +1,120 @@
+%%
+%% This is file `main.tex',
+%%
+%% 1. 本模板的发布遵守 LaTeX Project Public License，使用前请认真阅读协议内容。
+%%
+%% 2. 本模板遵从BY-NC-SA开源协议。使用者可以对本创作进行转载、节选、混编、二次创作，
+%%    但不得运用于商业目的，且使用时须进行署名，采用本创作的内容必须同样采用本协议进行授权。
+%%    作为学位论文提交时可免除署名，但可以在致谢中提及。
+%%
+%% 3. 北京交通大学研究生院提供的 LaTeX 模板在 Overleaf 环境下几乎为不可用的状态，
+%%    其版本基于清华大学Ruini Xue <xueruini@gmail.com>模板，版本较为陈旧，有较多过时代码，
+%%    笔者经过若干天勘误仍无法满足正常使用需求，故重新制作了本模板。
+%%
+%% 4. 本模板以苯人基于「南开大学程明明老师制作的 CVPR 中文模板」制作的
+%%    「东华大学本科学位论文模板」为基础，参考「北京交通大学研究生院提供的学术型硕士 LaTeX 模板」
+%%    「清华大学学位论文 LaTeX 模板 v7.5.2」部分代码制作而成。部分章节以及示例文件参考自
+%%    「清华大学学位论文 LaTeX 模板使用示例文档v7.5.1」。
+%%
+%% 5. 本模板可供给交大学生们写毕业论文及LaTeX学习参考使用，
+%%    仅保证在 Overleaf 平台以 XeTeX 2024 编译器可正常使用，其余平台请自行 Debug。
+%%    其格式已尽量与研究生院所规定的格式保持一致，
+%%    但不保证格式审查时一定能通过，如出现格式问题，与本模板制作者概无关系。
+%%    若有博士研究生、本科生使用请自行按照研究生院标准模板进行微调。
+%%
+%% 6. 任何个人或组织以本模板为基础进行修改、扩展而生成的新的专用模板，
+%%    请严格遵守 LaTeX Project Public License 协议。
+%%    由于违犯协议而引起的任何纠纷争端均与本模板修改者无关。
+%% 
+%% Copyright (C) 2025 by Zeto YEUNG <yeungzeto@gmail.com>
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008 or later.
+
+\documentclass[final,AutoFakeBold,12pt]{bjtumaster}
+\usepackage[pagebackref=false,breaklinks=true,colorlinks,CJKbookmarks=true]{hyperref}
+
+
+%%%%%%%%%%%%%%%%%%%% 撰写时此行建议注释掉，写完后务必取消注释%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{linkcolor=black,citecolor=black} 
+%%%%%%%%%%%%%%%%%%%% 撰写时此行建议注释掉，写完后务必取消注释%%%%%%%%%%%%%%%%%%%%%
+
+
+% 进一步设置 hyperref 超链接的选项
+\hypersetup{%
+    bookmarksnumbered=true, % 书签中显示章节编号
+    bookmarksopen=true, % 打开 PDF 时展开书签
+    bookmarksopenlevel=1, % 默认展开到一级标题
+    plainpages=false, % 允许 PDF 页面标签包含章节信息
+    pdfborder=0 0 0 % 去掉超链接的边框
+}
+
+\title{bjtu template}
+\author{Asano Yuki}
+\date{March 2025}
+
+
+
+
+
+\begin{document}            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 论文开始
+
+%%%%%%%%%%%%% 封面页、论文版权使用授权书
+\coverpages
+\include{chapters/cover}
+
+%%%%%%%%%%%%% 题名页、致谢页、中英文摘要页、序、目录、图和附表清单、术语表
+\ackpages
+\include{chapters/cover2}   % 题名页
+\input{chapters/ack}        % 致谢页
+
+\absntocpages
+\input{chapters/abstract}   % 中英文摘要与序
+
+\cleardoublepage    
+\tableofcontents            % 目录
+
+\cleardoublepage            % 若有图清单
+\listoffigures              % 若有图清单
+{(可根据需要撰写或移除)如学位论文中图表较多，应分别列出清单置于目录页之后。图的清单应有序
+号、图题和页码；表的清单应有序号、表题和页码。 } % 需要删除
+
+\cleardoublepage            % 若有附表清单
+\listoftables               % 若有附表清单
+{(可根据需要撰写或移除)如学位论文中图表较多，应分别列出清单置于目录页之后。图的清单应有序
+号、图题和页码；表的清单应有序号、表题和页码。 } % 需要删除
+
+\cleardoublepage            % 若有术语表
+\input{chapters/nomenclature}   % 若有术语表
+\printnomenclature          % 若有术语表
+
+%%%%%%%%%%%%% 主体部分、参考文献、附录、结尾部分
+\mainpages
+
+\input{chapters/chapter01}  % 第一章
+\input{chapters/chapter02}  % 第二章
+\input{chapters/chapter03}  % 第三章
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{参考文献}     % 参考文献
+\chapter*{参考文献}
+\vspace{-40pt}
+\wuhao
+\bibliographystyle{gbt7714-numerical}
+\bibliography{betterbib}
+
+\bjtuappendix                               % 附录
+\input{chapters/appendice}                  % 附录A
+
+\input{chapters/Curriculum Vitae}           % 个人简历、独创性声明
+\input{chapters/statement}                  % 学位论文数据集
+
+
+
+\end{document}              %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 论文结束

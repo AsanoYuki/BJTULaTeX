@@ -1,0 +1,56 @@
+\chapter{{\protect\\} \hspace{-13pt}{[补充内容]}}
+
+本章内容参考《清华大学学位论文\LaTeX{}模板使用示例文档\cite{TUN2025LaTeXThesisTe}v7.5.1》。
+
+附录是与论文内容密切相关、但编入正文又影响整篇论文编排的条理和逻辑
+性的资料，例如某些重要的数据表格、计算程序、统计表等，是论文主体的补充内
+容，可根据需要设置。
+
+附录中的图、表、数学表达式、参考文献等另行编序号，与正文分开，一律用
+阿拉伯数字编码，但在数码前冠以附录的序号，例如“图A-1”，“表A-1”，“式
+(A-1)”等。
+
+\section{插图}
+如\figref{fig:app}所示，这是一张例图。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{bjtu_rrc.pdf}
+  \bifigcaption{附录中的图片示例}{Example Image in Appendix}
+  \label{fig:app}
+\end{figure}
+
+\noindent 例图结束。
+
+\section{表格}
+如\tabref{tab:app}所示，这是一张例表。
+
+\begin{table}[H]\wuhao
+  \centering
+  \renewcommand\arraystretch{0.8} % 行距
+  \bitabcaption{附录中的表格示例}{Example Table in Appendix}
+  \begin{tabular}{ll}
+    \toprule
+    文件名          & 描述                         \\
+    \midrule
+    bjtumaster.cls   & 模板文件                     \\
+    main.tex & 论文主文档    \\
+    chapters & 论文章节存放目录  \\
+    figures & 论文插图存放目录        \\
+    betterbib.bib & 论文参考文献库(BibLaTeX)        \\
+    gbt7714-numerical.bst & BibTeX 参考文献表国标样式文件    \\
+    bibspacing.sty & 参考文献间距调整宏包  \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:app}
+\end{table}
+
+\section{数学表达式}
+
+\begin{equation}\label{示例}
+    M=d\left( n-g-1 \right) +\sum_{k=1}^g{f_k}+v-\xi 
+\end{equation}
+
+\equref{示例}是一个示例数学表达式，式中$d$为机构维数，$n$为构件数目，$g$为运动副数目，$\sum_{k=1}^g{f_k}$为各运动副自由度之和，$\xi$为局部自由度。
+
+
