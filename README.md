@@ -29,7 +29,7 @@
 
 * BJTU论文撰写规范（《[北京交通大学博士、硕士学位论文撰写规范](http://sse.bjtu.edu.cn/media/attachments/2017/07/20170725101952.pdf)》 或 `main.pdf` 第二章 论文撰写结构与规范）
 
-* 模板使用说明（``main.pdf` 第三章 $\mathrm{\LaTeX{}}$ 模板及论文撰写说明`）
+* 模板使用说明（`main.pdf` 第三章 $\mathrm{\LaTeX{}}$ 模板及论文撰写说明`）
 
 若无 $\mathrm{\LaTeX{}}$ 使用基础，可以在使用过程中参考：
 
