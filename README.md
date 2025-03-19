@@ -21,7 +21,7 @@
    
 5. 本模板可供给交大学生们写毕业论文及 $\mathrm{\LaTeX{}}$ 学习参考使用，仅保证在 Overleaf 平台以 XeTeX 2024 编译器可正常使用，其余平台请自行 Debug。其格式已尽量与研究生院所规定的格式保持一致，但不保证格式审查时一定能通过，如出现格式问题，与本模板制作者概无关系。若有博士研究生、本科生使用请自行按照研究生院标准模板进行微调。
    
-6. 任何个人或组织以本模板为基础进行修改、扩展而生成的新的专用模板，请严格遵守 [LaTeX项目公共许可证 v1.3c](https://www.latex-project.org/lppl/lppl-1-3c/) 与 [BY-NC-SA]([Deed - Attribution 4.0 International - Creative Commons](https://creativecommons.org/licenses/by/4.0/deed.en)) 协议。由于违犯协议而引起的任何纠纷争端均与本模板修改者无关。
+6. 任何个人或组织以本模板为基础进行修改、扩展而生成的新的专用模板，请严格遵守 [LaTeX项目公共许可证 v1.3c](https://www.latex-project.org/lppl/lppl-1-3c/) 与 [BY-NC-SA](https://creativecommons.org/licenses/by/4.0/deed.en) 协议。由于违犯协议而引起的任何纠纷争端均与本模板修改者无关。
 
 ## 使用
 
