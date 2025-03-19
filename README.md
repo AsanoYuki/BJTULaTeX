@@ -1,4 +1,4 @@
-[![GitHub release](https://img.shields.io/github/v/release/AsanoYuki/BJTULaTeX?include_prereleases)](https://github.com/AsanoYuki/BJTULaTeX/releases)![Maintained](https://img.shields.io/badge/maintained-yes-green)
+[![GitHub release](https://img.shields.io/github/v/release/AsanoYuki/BJTULaTeX?include_prereleases)](https://github.com/AsanoYuki/BJTULaTeX/releases)  ![Maintained](https://img.shields.io/badge/maintained-yes-green)
 
 # BJTU Graduate Thesis
 
@@ -56,4 +56,4 @@
 
 
 
-[![LPPL license](https://img.shields.io/badge/license-LPPL-blue)](https://github.com/AsanoYuki/BJTULaTeX/blob/main/LICENSE-LPPL)[![CC BY-NC-SA license](https://img.shields.io/badge/license-CC%20BY--NC--SA-blue)](https://github.com/AsanoYuki/BJTULaTeX/blob/main/LICENSE-CC-BY-NC-SA)[![CC BY-NC-SA 4.0](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![LPPL license](https://img.shields.io/badge/license-LPPL-blue)](https://github.com/AsanoYuki/BJTULaTeX/blob/main/LICENSE-LPPL)  [![CC BY-NC-SA license](https://img.shields.io/badge/license-CC%20BY--NC--SA-blue)](https://github.com/AsanoYuki/BJTULaTeX/blob/main/LICENSE-CC-BY-NC-SA)  [![CC BY-NC-SA 4.0](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
