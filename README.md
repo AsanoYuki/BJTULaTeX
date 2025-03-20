@@ -6,7 +6,7 @@
 
 （该模板并非由研究生院正式提供，其格式已尽可能符合要求，对于提交时可能出现的任何问题，研究生院概不负责。）
 
-任何对模板的使用、编辑、二次发布均需要遵守 [LaTeX项目公共许可证 v1.3c](https://www.latex-project.org/lppl/lppl-1-3c/) 以及 [BY-NC-SA]([Deed - Attribution 4.0 International - Creative Commons](https://creativecommons.org/licenses/by/4.0/deed.en)) 。
+任何对模板的使用、编辑、二次发布均需要遵守 [LaTeX项目公共许可证 v1.3c](https://www.latex-project.org/lppl/lppl-1-3c/) 以及 [BY-NC-SA](https://creativecommons.org/licenses/by/4.0/deed.en) 。
 
 任何意见或建议可在此仓库内新建issue。本模板维护可能不及时，请见谅。
 
@@ -16,7 +16,7 @@
 
 1. 本模板的发布遵守 [LaTeX项目公共许可证 v1.3c](https://www.latex-project.org/lppl/lppl-1-3c/) ，使用前请认真阅读协议内容。
 
-2. 本模板遵从 [BY-NC-SA ](https://creativecommons.org/licenses/by/4.0/deed.en) 协议。使用者可以对本创作进行转载、节选、混编、二次创作，但不得运用于商业目的，且使用时须进行署名，采用本创作的内容必须同样采用本协议进行授权。**作为学位论文提交时可免除署名，但可以在致谢中提及。**
+2. 本模板遵从 [BY-NC-SA](https://creativecommons.org/licenses/by/4.0/deed.en) 协议。使用者可以对本创作进行转载、节选、混编、二次创作，但不得运用于商业目的，且使用时须进行署名，采用本创作的内容必须同样采用本协议进行授权。**作为学位论文提交时可免除署名，但可以在致谢中提及。**
 
 3. 北京交通大学研究生院提供的 $\mathrm{\LaTeX{}}$ 模板在 Overleaf 环境下几乎为不可用的状态，其版本基于清华大学Ruini Xue <xueruini@gmail.com> 模板，版本较为陈旧，有较多过时代码，笔者经过若干天勘误仍无法满足正常使用需求，故重新制作了本模板。
    
@@ -52,7 +52,9 @@
 * 仅下载：
   * [GitHub Releases](https://github.com/AsanoYuki/BJTULaTeX/releases)：最新版的及时发布途径。
 * 在线编辑：
-  * [Overleaf 模板](https://www.overleaf.com/) （暂未上线）
+  * ~~[Overleaf 模板](https://www.overleaf.com/)~~ （由于 Overleaf 官方不接受非官方模板，无法直接上传至其模板库）
+
+
 
 
 
