@@ -8,7 +8,7 @@
 
 任何对模板的使用、编辑、二次发布均需要遵守 [LaTeX项目公共许可证 v1.3c](https://www.latex-project.org/lppl/lppl-1-3c/) 以及 [BY-NC-SA](https://creativecommons.org/licenses/by/4.0/deed.en) 。
 
-任何意见或建议可在此仓库内新建issue。本模板维护可能不及时，请见谅。
+任何意见或建议可在此仓库内新建issue。本模板维护可能不及时，请见谅。 
 
 ⭐如果该模板对您有帮助，请给我一颗星！谢谢！ [![GitHub stars](https://img.shields.io/github/stars/AsanoYuki/BJTULaTeX?style=social)](https://github.com/AsanoYuki/BJTULaTeX/stargazers)
 

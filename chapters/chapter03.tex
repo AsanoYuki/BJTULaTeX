@@ -117,6 +117,52 @@
 \numcircled{数字}
 \end{lstlisting}
 
+可使用\cs{mypara{}}命令插入含加粗小标题的段落，例如：
+
+\mypara{海猫络合物} 中国插画家、同人创作者及游戏《明日方舟》制作人，业余平面设计师与建筑师。现居上海市。毕业于浙江杭州高级中学、中国美术学院建筑系，前少女前线首席游戏图形设计师（主美），鹰角网络创始人之一。
+
+可使用\cs{itemize}环境创建不编号列表，例如：
+
+\begin{itemize}
+    \item \textbf{智力：}逻辑思维、博学多闻、能说会道、故弄玄虚、标新立异、见微知著
+    \item \textbf{精神：}平心定气、内陆帝国、通情达理、争强好胜、同舟共济、循循善诱
+    \item \textbf{体格：}钢筋铁骨、坚忍不拔、强身健体、食髓知味、天人感应、疑神疑鬼
+    \item \textbf{身手：}眼明手巧、五感发达、反应速度、鬼祟玲珑、能工巧匠、从容自若
+\end{itemize}
+
+可使用\cs{enumerate}环境创建编号列表，例如：
+
+\begin{enumerate}
+    \item \textbf{警探巨星：}说超级巨星台词7次
+    \item \textbf{新自由主义街区天字第一号皮条客：}吹捧自由市场9次
+    \item \textbf{招募曷城金警探：}57区的杰出代表
+    \item \textbf{世界上最可怜的警探：}道歉10次
+    \item \textbf{雕像也无法让她回心转意：}它们毫无意义
+    \item \textbf{传统主义疯狗：}说传统主义事项10次
+    \item \textbf{无聊之极：}说极其无聊之事7次
+    \item \textbf{法律化身：}说你就是法律7次
+\end{enumerate}
+
+可使用\texttt{[label=(\textbackslash arabic*)]}、\texttt{[label={[}\textbackslash Roman*{]}]}等指令修改enumerate编号列表的编号格式，如：
+
+\begin{enumerate}[label=(\arabic*)]
+    \item \textbf{费尔韦瑟T-500搪瓷套装：}从头到脚，全副武装
+    \item \textbf{第八封印的开启者：}警告他人末日即将来临8次
+    \item \textbf{现界之敌：}教训5件静物
+    \item \textbf{招募警探库诺·德鲁伊特：}下级警官的料
+    \item \textbf{超级遥视者：}得见幕外6次
+    \item \textbf{机械痴：}闲扯关于机械的话题4次
+\end{enumerate}
+
+\begin{enumerate}[label={[}\Roman*{]}]
+    \item \textbf{模范坏警察：}与金一起创下历史新低
+    \item \textbf{挑战硬核：}祝你好运
+    \item \textbf{大陆荣誉警察：}获得11点荣耀点数
+    \item \textbf{无谷蛋白顶料馅饼：}接下来你就要切断碳水化合物了
+    \item \textbf{真探：}以硬核模式通关游戏
+    \item \textbf{灰域行者：}切换次元3秒钟
+\end{enumerate}
+
 \subsection{作者简历及攻读学位期间取得的研究成果}
 需要编辑\cs{chapters}\cs{Curriculum Vitae.tex}文件。
 
@@ -324,12 +370,18 @@
     \caption*{Continued Table~\thetable\quad {英文表题}} \\
 \end{lstlisting}
 
+在单元格内若需要进行换行操作，则需要使用\cs{makecell}宏包的指令，添加在需要换行的单元格上，如：
+
+\begin{lstlisting}[language={[LaTeX]TeX}]
+    \makecell{换行前的内容 \\ 换行后的内容}
+\end{lstlisting}
+
 \subsection{缩写、公式}
 
 \subsubsection{缩写}
 采用英语缩写词时，除本行业广泛应用的通用缩写词外，文中第一次出现的缩写词应该用括号注明英文原词。
 
-\textbf{eg:} 自由度(DoF, Degree of Freedom)
+\textbf{eg:} 自由度(Degree of Freedom, DoF)
 
 \subsubsection{公式}
 公式分为行内公式与行间公式两种。行内公式常用来表示简单物理量符号，不编号，有两种表示方法(后者不推荐)，如“我们常用$\xi$表示机构局部自由度”的代码为：

@@ -45,7 +45,7 @@
 %%%%%%%%% 加载所需宏包
 \RequirePackage[UTF8]{ctex}  % 中文支持
 \RequirePackage[dvipsnames, svgnames, x11names]{xcolor}     % 增大色彩库
-\RequirePackage{times}        % Times 字体
+% \RequirePackage{times}        % Times 字体
 \RequirePackage{epsfig}
 \RequirePackage{graphicx}    % 图片支持
 \RequirePackage{amsmath, amssymb} % 数学环境
@@ -87,13 +87,13 @@
 \RequirePackage{algorithmic}    % 算法环境
 
 \RequirePackage{ifthen,calc}
-\RequirePackage{txfonts}
+% \RequirePackage{txfonts}
 % \RequirePackage{thutils}
 \RequirePackage{bm}    %%%%%  排印数学符号黑斜体时调用此宏包
-\RequirePackage{color}
+% \RequirePackage{color}
 \RequirePackage{threeparttable}
-
-
+\RequirePackage{notoccite}     % 防止清单打乱参考文献编号
+\RequirePackage{{perpage}}     % 快捷设置计数器
 %%%%%%%%%页面样式与页眉页脚
 
 % 设置页面格式
@@ -211,7 +211,7 @@
 \newlength\bjtu@linespace
 
 \setlist[enumerate]{label=\arabic*), itemsep=-4pt, topsep=0em}
-
+\setlist[itemize]{itemsep=-4pt, topsep=0em}
 
 %%%%%%%%设置字体
 
@@ -219,7 +219,7 @@
 \renewcommand\normalsize{%
   % \@setfontsize\normalsize{12pt}{20pt} % 正文字体大小为 12bp，行距为 20bp
   \bjtu@choosefont{1.29}{12bp} % 字体 12bp，行距 1.29 × 12bp = 15.48bp
-  \abovedisplayskip=2bp \@plus 2bp \@minus 3bp % 数学公式与上文的间距
+  \abovedisplayskip=-7bp \@plus 2bp \@minus 3bp % 数学公式与上文的间距
   \abovedisplayshortskip=\abovedisplayskip % 短公式与上文的间距
   \belowdisplayskip=10bp \@plus 5bp \@minus 2bp % 数学公式与下文的间距
   \belowdisplayshortskip=\belowdisplayskip % 短公式与下文的间距
@@ -283,14 +283,9 @@
 \setCJKfamilyfont{kai}{AR PL UKai CN} % 楷体
 
 
-% % 设置中文罗马字形为楷体
-% \newcommand{\CJKit}[1]{%
-%   \begingroup
-%   \CJKfamily{TW-Kai} #1%
-%   \endgroup
-% }
-
 % 设置英文字体
+% \setmainfont{Libre Bodoni} % 默认英文字体
+% \setmainfont{Libre Caslon Text} % 默认英文字体
 % \setmainfont{CMU Serif} % 默认英文字体
 \setmainfont{Times New Roman} % 默认英文字体
 \setsansfont{Arial} % 无衬线英文字体
@@ -315,7 +310,7 @@
 %%%%%%%%%%定义角注（Copyright (C) 2005-2009 by Ruini Xue <xueruini@gmail.com>
 
 % % 将脚注设置为每页重置
-% \MakePerPage{footnote}
+\MakePerPage{footnote}
 
 % 定义带圈数字
 % \def\bjtu@textcircled#1{%
@@ -441,24 +436,22 @@
 % 设置图清单格式
 \renewcommand{\cftfigfont}{\xiaosi[1.5]} % 图标题字体
 \renewcommand{\cftfigpagefont}{\xiaosi\normalfont} % 图页码字体，不加粗
-\setlength{\cftbeforefigskip}{0pt} % 图条目间距
+\setlength{\cftbeforefigskip}{2pt} % 图条目间距
 \renewcommand{\cftfigpresnum}{} % 移除前缀“图”
 \renewcommand{\cftfigaftersnum}{} % 移除编号后的分隔符
 \setlength{\cftfignumwidth}{2.5em} % 增加编号宽度以适应“1-1”
 \setlength{\cftfigindent}{0pt} % 第一行无缩进
-\setlength{\cftbeforefigskip}{5pt} % 条目间距
 \renewcommand{\cftfigleader}{\cftdotfill{\cftfigdotsep}} % 添加点号连接符
 \renewcommand{\cftfigdotsep}{1} % 点号间距
 
 % 设置表清单格式
 \renewcommand{\cfttabfont}{\xiaosi[1.5]} % 表标题字体
 \renewcommand{\cfttabpagefont}{\xiaosi\normalfont} % 表页码字体，不加粗
-\setlength{\cftbeforetabskip}{0pt} % 表条目间距
+\setlength{\cftbeforetabskip}{2pt} % 表条目间距
 \renewcommand{\cfttabpresnum}{} % 移除前缀“表”
 \renewcommand{\cfttabaftersnum}{} % 移除编号后的分隔符
 \setlength{\cfttabnumwidth}{2.5em} % 增加编号宽度以适应“1-1”
 \setlength{\cfttabindent}{0pt} % 第一行无缩进
-\setlength{\cftbeforetabskip}{5pt} % 条目间距
 \renewcommand{\cfttableader}{\cftdotfill{\cfttabdotsep}} % 添加点号连接符
 \renewcommand{\cfttabdotsep}{1} % 点号间距
 
@@ -471,7 +464,6 @@
 \setlength{\cftafterlottitleskip}{20pt} % 表清单标题间距
 \setlength{\cftbeforeloftitleskip}{-6pt} % 图清单距离页面顶部距离
 \setlength{\cftbeforelottitleskip}{-6pt} % 表清单距离页面顶部距离
-
 
 
 
@@ -509,8 +501,8 @@
     position=bottom,
     belowskip={12bp-\intextsep},
     aboveskip=6bp,
-    labelfont=small, 
-    textfont=small, 
+    labelfont={small}, 
+    textfont={small}, 
     labelformat=simple, 
     labelsep=space
 }% 子图标题
@@ -521,7 +513,7 @@
   \caption[{#1\protect\\~~~~~~#2}]% 清单中只显示标题
     {#1} % 中文标题
     \vspace{-5pt} % 调整中英文标题间距
-  \caption*{Fig.~~\thefigure\quad#2}% 英文标题
+  \caption*{Fig.~\thefigure\quad#2}% 英文标题
 }
 
 
@@ -530,11 +522,13 @@
   \caption[{#1\protect\\~~~~~~#2}]% 清单中只显示标题
     {#1} % 中文标题
   \vspace{-5pt} % 调整中英文标题间距
-  \caption*{Table~~\thetable\quad#2} % 英文标题
+  \caption*{Table~\thetable\quad#2} % 英文标题
 }
 
-% 设置长表格的默认字体为 \dawu[1.5]
-\AtBeginEnvironment{longtable}{\dawu[1.5]}
+% 设置表格的默认字体为 \wuhao
+\AtBeginEnvironment{tabular}{\small}
+\AtBeginEnvironment{longtable}{\small}
+
 
 % 定义水平线宽度
 \def\hlinewd#1{%
@@ -546,7 +540,7 @@
 \setlength{\lineskip}{0pt}
 \setlength{\abovecaptionskip}{0cm}
 \setlength{\belowcaptionskip}{0cm}
-\setlength{\textfloatsep}{5pt plus 1pt minus 1pt} % 让图片与正文更贴近
+\setlength{\textfloatsep}{10pt plus 3pt minus 1pt} % 让图片与正文更贴近
 \setlength{\floatsep}{5pt plus 1pt minus 1pt} % 让两个浮动体之间的间距更小
 
 % 设定图片路径
@@ -657,14 +651,29 @@
 \gdef \subsec{节}
 \gdef \app{附录}
 
-\newcommand{\figref}[1]{图\ref{#1}}
-\newcommand{\tabref}[1]{表\ref{#1}}
-\newcommand{\equref}[1]{式(\ref{#1})}
-\newcommand{\algref}[1]{算法\ref{#1}}
-\newcommand{\chptref}[1]{第\ref{#1}章}
-\newcommand{\secref}[1]{第\ref{#1}节}
-\newcommand{\appref}[1]{附录\ref{#1}}
-\newcommand{\mypara}[1]{\paragraph{\qquad #1 \; }}
+\newcommand{\figref}[1]{图 \ref{#1} }
+\newcommand{\tabref}[1]{表 \ref{#1} }
+\newcommand{\equref}[1]{式(\ref{#1}) }
+\newcommand{\algref}[1]{算法 \ref{#1} }
+\newcommand{\chptref}[1]{第 \ref{#1} 章}
+\newcommand{\secref}[1]{第 \ref{#1} 节}
+\newcommand{\appref}[1]{附录 \ref{#1} }
+
+% % 调整 \paragraph 的格式和间距
+% \titleformat{\paragraph}
+%   {\normalfont\normalsize} % 字体与正文一致
+%   {\qquad} % 标题前缀（保持您的 \qquad 缩进）
+%   {0pt} % 标题前缀与标题之间的水平间距
+%   {} % 标题后无额外内容
+% \titlespacing{\paragraph}
+%   {0pt} % 左缩进
+%   {0pt} % 标题前间距
+%   {0pt} % 标题后间距（与正文一致）
+%   [0pt] % 右缩进
+
+% 重新定义 \mypara
+% \newcommand{\mypara}[1]{\paragraph{\bfseries \qquad #1 \; \quad}}
+\newcommand{\mypara}[1]{\vspace{-1.1em}\paragraph{\qquad #1 \; }}
 
 
 %%%%%%%%%%%%%%%% 手动定义 \XeTeX 和 \overleaf 标志
