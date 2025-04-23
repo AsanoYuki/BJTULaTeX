@@ -4,9 +4,9 @@
 
 本仓库为北京交通大学研究生毕业论文建立了一个简单易用的 $\mathrm{\LaTeX{}}$ 模板，专门针对Overleaf环境进行优化，仅支持XeTeX编译器。
 
-于2025.3版本正式支持**学术型硕士**(`master-academic`)、**专业型硕士**(`master-professional`)、**学术型博士**(`doctor-academic`)、**专业型博士**(`doctor-professional`)四类论文。通过修改`main.tex` 第一行代码`\documentclass[final,AutoFakeBold,12pt,master-academic]{bjtuthesis}` 进行不同学位类型的调用，具体请查看说明文档`main.pdf` 的第3.1节。
+于 2025.3 版本正式支持**学术型硕士** (`master-academic`)、**专业型硕士** (`master-professional`)、**学术型博士** (`doctor-academic`)、**专业型博士** (`doctor-professional`)四类论文。通过修改 `main.tex` 第一行代码 `\documentclass[final,AutoFakeBold,12pt,master-academic]{bjtuthesis}` 进行不同学位类型的调用，具体请查看说明文档 `main.pdf` 的第3.1节。
 
-（该模板并非由研究生院正式提供，其格式已尽可能符合要求，对于提交时可能出现的任何问题，研究生院概不负责。）
+（该模板并非由研究生院正式提供，其格式已尽可能符合要求，理论上无提交问题，但对于提交时可能出现的任何问题，模板作者概不负责。）
 
 任何对模板的使用、编辑、二次发布均需要遵守 [LaTeX项目公共许可证 v1.3c](https://www.latex-project.org/lppl/lppl-1-3c/) 以及 [BY-NC-SA](https://creativecommons.org/licenses/by/4.0/deed.en) 。
 
@@ -29,11 +29,11 @@
 
 ## 使用
 
-在Overleaf平台选择新建项目，将zip包拖拽上传即可使用。
+在 Overleaf 平台选择新建项目，将zip包拖拽上传即可使用。
 
 **开始使用本模板时务必阅读：**
 
-* BJTU论文撰写规范（《[北京交通大学博士、硕士学位论文撰写规范](http://sse.bjtu.edu.cn/media/attachments/2017/07/20170725101952.pdf)》 或 `main.pdf` 第二章 论文撰写结构与规范）
+* BJTU 论文撰写规范（《[北京交通大学博士、硕士学位论文撰写规范](http://sse.bjtu.edu.cn/media/attachments/2017/07/20170725101952.pdf)》 或 `main.pdf` 第二章 论文撰写结构与规范）
 
 * 模板使用说明（`main.pdf` 第三章 $\mathrm{\LaTeX{}}$ 模板及论文撰写说明`）
 
@@ -54,9 +54,9 @@
 
 本模板本意为开发用于 Overleaf 环境编译使用，但不排除有同学有**本地编译需求**或其它在线 $\mathrm{\LaTeX{}}$ 平台编译需求。因此在用户手册中有**《第四章 本地编译环境常见报错的说明》**。若有需要可以参考。主要有三个重要报错：
 
-* **编译器Compiler错误导致编译失败**：本模板**仅支持XeTeX编译器**编译，不支持pdfLaTeX等旧时代编译器，请修改编译器设置(如通过修改VSCode的*.json文件。)
-* **字体问题**：本模板采用\overleaf 平台内置的开源可商用字体。部分字体可能计算机本地未安装，因此无法编译。建议查看计算机已安装字体，并修改`bjtuthesis.cls`中的字体设定。详见**用户手册**。
-* **\*.svg格式的矢量图导致的编译错误**：本模板虽引入svg宏包，但本地编译环境需要第三方插件支持。具体错误分析详见**用户手册**。最快捷的解决方案：建议将\*.svg矢量图转换为\*.pdf格式进行调用，避免直接调用\*.svg矢量图。或直接转换为位图进行调用。均可正常进行编译。
+* **编译器 Compiler 错误导致编译失败**：本模板**仅支持 XeTeX 编译器**编译，不支持 pdfLaTeX 等旧时代编译器，请修改编译器设置 (如通过修改 VSCode 的*.json文件。)
+* **字体问题**：本模板采用 Overleaf 平台内置的开源可商用字体。部分字体可能计算机本地未安装，因此无法编译。建议查看计算机已安装字体，并修改 `bjtuthesis.cls`中的字体设定。详见**用户手册**。
+* **\*.svg 格式的矢量图导致的编译错误**：本模板虽引入 svg 宏包，但本地编译环境需要第三方插件支持。具体错误分析详见**用户手册**。最快捷的解决方案：建议将 \*.svg 矢量图转换为 \*.pdf 格式进行调用，避免直接调用 \*.svg 矢量图。或直接转换为位图进行调用。均可正常进行编译。
 
 
 
