@@ -1,5 +1,6 @@
 \chapter*{独创性声明}
 \markboth{独创性声明}{}
+\addcontentsline{toc}{chapter}{独创性声明}
 
 本人声明所呈交的学位论文是本人在导师指导下进行的研究工作和取得的研究成果，除
 了文中特别加以标注和致谢之处外，论文中不包含其他人已经发表或撰写过的研究成果，也
@@ -11,33 +12,56 @@
 
 \chapter*{学位论文数据集}
 \markboth{学位论文数据集}{}
+\addcontentsline{toc}{chapter}{学位论文数据集}
 \begin{table}[H]
 \caption*{表1.1： 数据集页}
 \renewcommand\arraystretch{0.8} % 行距
 \centering
 	\begin{tabular}{|p{2.9cm}|p{2.1cm}|p{2.9cm}|p{3.4cm}|p{2.5cm}|}
 		\hline	关键词* &密级* & 中图分类号 &	UDC& 论文资助\\
-		\hline 关键词1；关键词2&公开&分类号Z&分类号U&基金名称\\
+		\hline \KeyWords &公开&\CGCN &\UDC &\Funding \\
 		\hline	\multicolumn{2}{|l|}{学位授予单位名称*}&	学位授予单位代码*&	学位类别* & 学位级别*\\
-		\hline	\multicolumn{2}{|l|}{北京交通大学}&	& & \\
-		\hline	\multicolumn{2}{|p{5.0cm}|}{中文题目} &	\multicolumn{2}{p{6.3cm}|}{英文题目}&中文\\
-		\hline	\multicolumn{2}{|l|}{} &	\multicolumn{2}{l|}{}&\\
-		\hline	作者姓名*&	\multicolumn{2}{l|}{}&学号* &\\
+		\hline	\multicolumn{2}{|l|}{北京交通大学}&	10004& \DegreeType & \DegreeLevel \\
+		\hline	\multicolumn{2}{|l|}{论文题名*} &	\multicolumn{2}{l|}{
+        \ifmaster
+          并列题名
+        \else
+          并列题名*
+        \fi
+        }& 论文语种* \\
+		\hline	\multicolumn{2}{|p{5.0cm}|}{\ThesisTitle} &	\multicolumn{2}{p{6.3cm}|}{\ThesisEngTitle}&中文\\
+		\hline	作者姓名*&  	\multicolumn{2}{l|}{\AuthorName}&学号* &\StudentID \\
 		\hline	\multicolumn{2}{|l|}{培养单位名称*}&培养单位代码*&培养单位地址&邮编\\
 		\hline	\multicolumn{2}{|l|}{北京交通大学}&10004&	北京市海淀区西直门外上园村3号& 100044\\
-        \hline	\multicolumn{2}{|l|}{学科专业*}&研究方向*&学制*&学位授予年*\\
-        \hline	\multicolumn{2}{|l|}{}&&&\\
-        \hline	论文提交日期*&\multicolumn{4}{l|}{}\\
-		\hline	导师姓名*&\multicolumn{2}{l|}{}&职称*&\\
+        \hline	\multicolumn{2}{|l|}{
+        \ifmaster
+          \ifprofessional
+            专业学位类别(领域)*
+          \else
+            学科专业*
+          \fi
+        \else
+          学科专业*
+        \fi
+        }&研究方向*&学制*&学位授予年*\\
+        \hline	\multicolumn{2}{|l|}{\Major}&\ResearchDirection &\Lengthof &\Yearof \\
+        \hline	论文提交日期*&\multicolumn{4}{l|}{\today}\\
+		\hline	导师姓名*&\multicolumn{2}{l|}{\Supervisor}&职称*&\SupervisorTitle\\
         \hline	评阅人&\multicolumn{2}{l|}{答辩委员会主席*}&\multicolumn{2}{l|}{答辩委员会成员}\\
-        \hline	&\multicolumn{2}{l|}{}&\multicolumn{2}{l|}{}\\
+        \hline	\Reviewer &\multicolumn{2}{l|}{\ChairmanofDC}&\multicolumn{2}{l|}{\MembersofDC}\\
                &\multicolumn{2}{l|}{}&\multicolumn{2}{l|}{}\\
         \hline \multicolumn{5}{|l|}{电子版论文提交格式  文本(~~)  图像(~~) 视频(~~) 音频(~~) 多媒体(~~) 其他(~~)}\\
         \multicolumn{5}{|l|}{推荐格式：application/msword；application/pdf}\\
         \hline	\multicolumn{2}{|l|}{电子版论文出版(发布)者}&\multicolumn{2}{l|}{电子版论文出版(发布)地}&权限声明\\
 		\hline  \multicolumn{2}{|l|}{}&\multicolumn{2}{l|}{}&\\
-		\hline  论文总页数*&\multicolumn{4}{l|}{}\\
-		\hline  \multicolumn{5}{|l|}{共33项，其中带*为必填数据，为21项。}\\
+		\hline  论文总页数*&\multicolumn{4}{l|}{\thepage }\\
+		\hline  \multicolumn{5}{|l|}{
+        \ifmaster
+          共33项，其中带*为必填数据，为21项。
+        \else
+          共33项，其中带*为必填数据，为22项。
+        \fi
+        }\\
 		\hline
 \end{tabular}
 \end{table}

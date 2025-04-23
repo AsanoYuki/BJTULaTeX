@@ -13,7 +13,7 @@
 \begin{minipage}[t][2cm]{\textwidth}\centering
 {\kai\chuhao[1]\ziju{8pt} 北京交通大学}
 \vskip 0.3cm
-{\song\erhao[1]\ziju{6pt}  \bfseries{硕士学位论文}}
+{\song\erhao[1]\ziju{6pt}  \bfseries{\degreeinfo}}
 \end{minipage}
 
 \vskip 2cm
@@ -22,9 +22,9 @@
 \hspace{-0.9cm}
 \hskip .6cm
 \begin{minipage}[t][2cm]{.9\textwidth}\centering
-{\song\xiaosan[1] 北京交通大学学术硕士学位论文 \LaTeX{}模板\\ Overleaf平台专用ver.2025.2}
+{\song\xiaosan[1] \ThesisTitle}
 \vskip 0.4cm
-{\song\xiaosan[1]\ziju{4pt}  Overleaf Platform-specific \LaTeX{} Template of \\Beijing Jiaotong University Academic Master Thesis ver.2025.2}
+{\song\xiaosan[1]\ziju{4pt}  \ThesisEngTitle}
 \end{minipage}
 
 \vskip 3.4cm
@@ -32,24 +32,29 @@
 \hspace{-0.9cm}
 \begin{minipage}[t][1cm]{\textwidth}\song\sihao[1]
 \begin{minipage}[t]{0.5\textwidth}
-作者姓名:\ Zeto YEUNG
+作者姓名:\ \AuthorName
 \vskip 0.9cm						
-
-导师姓名:\ S.G.
+导师姓名:\ \Supervisor
 \vskip 0.9cm
-学位类别:\  工学           			
-\vskip 0.9cm
-学科专业:\ \LaTeX{}  							
+\ifacademic
+  学位类别:\  \DegreeType           			
+  \vskip 0.9cm
+  学科专业:\ \Major 
+\else
+  专业学位类别(领域):\ \Major 
+\fi
 
 \end{minipage}\hfill
 \begin{minipage}[t]{0.5\textwidth}
-学~~~~~~~~号:\ 20222025
+学~~~~~~~~号:\ \StudentID
 \vskip 0.9cm
-职~~~~~~~~称:\  教授
+职~~~~~~~~称:\  \SupervisorTitle
 \vskip 0.9cm
-学位级别:\  硕士
-\vskip 0.9cm
-研究方向:\ Overleaf与\XeTeX
+学位级别:\  \DegreeLevel
+\ifacademic
+  \vskip 0.9cm
+  研究方向:\ \ResearchDirection
+\fi
 \end{minipage}
 \end{minipage}
 
@@ -63,3 +68,38 @@
 \end{minipage}
 
 \null\texttt{}\relax
+
+
+
+\ifdoctor
+\chapter*{答辩委员会名单}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{2.55} % 增加行高
+
+\begin{tabular}{|>{\centering\arraybackslash\xiaosi }m{2.2cm}|
+                >{\centering\arraybackslash\xiaosi }m{2.5cm}|
+                >{\centering\arraybackslash\xiaosi }m{5.6cm}|
+                >{\centering\arraybackslash\xiaosi }m{3.1cm}|}
+  \hline
+  \textbf{答辩委员会} & \textbf{姓名} & \textbf{工作单位} & \textbf{职称} \\
+  \hline
+  主席 & 主席姓名 & 主席工作单位 & 主席职称 \\
+  \hline
+  委员 & 委员姓名 & 委员工作单位 & 委员职称 \\
+  \hline
+  委员 & 委员姓名 & 委员工作单位 & 委员职称 \\
+  \hline
+  委员 & 委员姓名 & 委员工作单位 & 委员职称 \\
+  \hline
+  委员 & 委员姓名 & 委员工作单位 & 委员职称 \\
+  \hline
+  …… & …… & …… & …… \\
+  \hline
+  秘书 & 秘书姓名 & 北京交通大学 & 秘书职称 \\
+  \hline
+\end{tabular}
+\end{table}
+
+\fi

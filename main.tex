@@ -20,7 +20,6 @@
 %%    仅保证在 Overleaf 平台以 XeTeX 2024 编译器可正常使用，其余平台请自行 Debug。
 %%    其格式已尽量与研究生院所规定的格式保持一致，
 %%    但不保证格式审查时一定能通过，如出现格式问题，与本模板制作者概无关系。
-%%    若有博士研究生、本科生使用请自行按照研究生院标准模板进行微调。
 %%
 %% 6. 任何个人或组织以本模板为基础进行修改、扩展而生成的新的专用模板，
 %%    请严格遵守 LaTeX Project Public License 协议。
@@ -36,12 +35,21 @@
 %% and version 1.3c or later is part of all distributions of LaTeX
 %% version 2008 or later.
 
-\documentclass[final,AutoFakeBold,12pt]{bjtumaster}
+%%%%%%%%%%%%%%%%%%% 定义学位类别 %%%%%%%%%%%%%%%
+\documentclass[final,AutoFakeBold,12pt,master-academic]{bjtuthesis}
+%%%%%%%%%%%%%%%%%%% 类别包含：
+% 学术型硕士(master-academic)
+% 专业型硕士(master-professional)
+% 学术型博士(doctor-academic)
+% 专业型博士(doctor-professional)
+% 请修改方括号内最后一项内容，不要改变前三项！
+
 \usepackage[pagebackref=false,breaklinks=true,colorlinks,CJKbookmarks=true]{hyperref}
 
 
 %%%%%%%%%%%%%%%%%%%% 撰写时此行建议注释掉，写完后务必取消注释%%%%%%%%%%%%%%%%%%%%%
-\hypersetup{linkcolor=black,citecolor=black} 
+\hypersetup{linkcolor=black,citecolor=black,urlcolor=black} 
+% 注释掉后可醒目查看图表章节公式引用、参考文献引用、链接引用
 %%%%%%%%%%%%%%%%%%%% 撰写时此行建议注释掉，写完后务必取消注释%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -54,18 +62,42 @@
     pdfborder=0 0 0 % 去掉超链接的边框
 }
 
-\title{bjtu template}
-\author{Asano Yuki}
-\date{March 2025}
+% 加载参考文献bib文件
+\addbibresource{betterbib.bib}
+
+% 定义日期
+\renewcommand{\today}{\number\year 年 \number\month 月}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 定义论文信息字段
+\newcommand{\ThesisTitle}{北京交通大学研究生学位论文 \LaTeX{}模板 \overleaf{} 平台专用ver.2025.3}  % 论文中文标题
 
+\newcommand{\ThesisEngTitle}{\overleaf{} Platform-specific \LaTeX{} Template of Beijing Jiaotong University Graduate Thesis ver.2025.3}    % 论文英文标题
+
+\newcommand{\AuthorName}{Zeto YEUNG}    % 作者姓名
+\newcommand{\StudentID}{20222025}       % 作者学号
+\newcommand{\Supervisor}{S. G. }        % 导师姓名
+\newcommand{\SupervisorTitle}{教授}       % 导师职称
+\newcommand{\DegreeType}{工学}            % 学位类别(专业学位无此行)
+\newcommand{\DegreeLevel}{硕士}           % 学位级别
+\newcommand{\Major}{\LaTeX{}}             % 学科专业或专业学位类别(领域)
+\newcommand{\ResearchDirection}{\overleaf{}与\XeTeX{}}   % 研究方向(专业学位无此行)
+\newcommand{\KeyWords}{关键词1；关键词2；关键词3}  % 中文关键词
+\newcommand{\CGCN}{中图分类号Z}           % 中图分类号，可在https://www.clcindex.com/ 查询
+\newcommand{\UDC}{分类号U}              % UDC分类号，可在https://udcsummary.info/php/index.php?lang=chi 查询
+\newcommand{\Funding}{基金名称}         % 论文资助(填写基金名称)
+\newcommand{\Lengthof}{3年}            % 学制(请如实填写)
+\newcommand{\Yearof}{2025}              % 学位授予年(请如实填写)
+\newcommand{\Reviewer}{评阅人姓名}       % 评阅人
+\newcommand{\ChairmanofDC}{答辩委员会主席姓名}       % 答辩委员会主席
+\newcommand{\MembersofDC}{答辩委员会成员姓名}       % 答辩委员会成员
 
 
 \begin{document}            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 论文开始
 
 %%%%%%%%%%%%% 封面页、论文版权使用授权书
 \coverpages
+\begingroup\setbox0=\hbox{\overleaf}\endgroup % 此行内容用于预热模板中的overleaf字标，若无使用需求，可删去
 \include{chapters/cover}
 
 %%%%%%%%%%%%% 题名页、致谢页、中英文摘要页、序、目录、图和附表清单、术语表
@@ -81,16 +113,15 @@
 
 \cleardoublepage            % 若有图清单
 \listoffigures              % 若有图清单
-{(可根据需要撰写或移除)如学位论文中图表较多，应分别列出清单置于目录页之后。图的清单应有序
-号、图题和页码；表的清单应有序号、表题和页码。 } % 需要删除
+%%%%%%%%%%%%{(可根据需要撰写或移除)如学位论文中图表较多，应分别列出清单置于目录页之后。图的清单应有序号、图题和页码；表的清单应有序号、表题和页码。 }
 
 \cleardoublepage            % 若有附表清单
 \listoftables               % 若有附表清单
-{(可根据需要撰写或移除)如学位论文中图表较多，应分别列出清单置于目录页之后。图的清单应有序
-号、图题和页码；表的清单应有序号、表题和页码。 } % 需要删除
+%%%%%%%%%%%%{(可根据需要撰写或移除)如学位论文中图表较多，应分别列出清单置于目录页之后。图的清单应有序号、图题和页码；表的清单应有序号、表题和页码。 }
 
 \cleardoublepage            % 若有术语表
 \input{chapters/nomenclature}   % 若有术语表
+\addcontentsline{toc}{chapter}{物理量名称及符号表}
 \printnomenclature          % 若有术语表
 
 %%%%%%%%%%%%% 主体部分、参考文献、附录、结尾部分
@@ -99,15 +130,14 @@
 \input{chapters/chapter01}  % 第一章
 \input{chapters/chapter02}  % 第二章
 \input{chapters/chapter03}  % 第三章
+\input{chapters/chapter04}  % 第四章
+
 
 \cleardoublepage
 \phantomsection
-\addcontentsline{toc}{chapter}{参考文献}     % 参考文献
-\chapter*{参考文献}
 \vspace{-40pt}
-\wuhao
-\bibliographystyle{gbt7714-numerical}
-\bibliography{betterbib}
+\printbibliography[heading=bibintoc,title={参考文献}]
+
 
 \bjtuappendix                               % 附录
 \input{chapters/appendice}                  % 附录A

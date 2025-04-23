@@ -16,7 +16,7 @@
     \midrule
     chapters & 论文章节存放目录  \\
     figures & 论文插图存放目录        \\
-    bjtumaster.cls   & 模板文件                     \\
+    bjtuthesis.cls   & 模板文件                     \\
     main.tex & 论文主文档    \\
     betterbib.bib & 论文参考文献库(BibLaTeX)        \\
     gbt7714-numerical.bst & BibTeX 参考文献表国标样式文件    \\
@@ -26,13 +26,81 @@
   \label{模板目录与结构清单}
 \end{table}
 
-使用本模板时，请在\cs{chapters}目录下删改、新增并编辑论文的章节\cs{*.tex}文件；在\cs{figures}目录下上传论文的插图；在\cs{main.tex}文件内编辑论文的整体结构；在\cs{betterbib.bib}内编辑论文引用文献的条目信息。若有需求可修改\cs{bjtumaster.cls}文件内的论文的版面结构设置。
+使用本模板撰写论文时，请首先确定自己的学位类型，并修改\cs{main.tex}的第一行代码！
+
+若为\textbf{学术型硕士}，请使用\texttt{\textbf{master-academic}}，具体为：
+\begin{lstlisting}[language={[LaTeX]TeX}]
+    \documentclass[final,AutoFakeBold,12pt,master-academic]{bjtuthesis}
+\end{lstlisting}
+
+若为\textbf{专业型硕士}，请使用\texttt{\textbf{master-professional}}，具体为：
+\begin{lstlisting}[language={[LaTeX]TeX}]
+    \documentclass[final,AutoFakeBold,12pt,master-professional]{bjtuthesis}
+\end{lstlisting}
+
+若为\textbf{学术型博士}，请使用\texttt{\textbf{doctor-academic}}，具体为：
+\begin{lstlisting}[language={[LaTeX]TeX}]
+    \documentclass[final,AutoFakeBold,12pt,doctor-academic]{bjtuthesis}
+\end{lstlisting}
+
+若为\textbf{专业型博士}，请使用\texttt{\textbf{doctor-professional}}，具体为：
+\begin{lstlisting}[language={[LaTeX]TeX}]
+    \documentclass[final,AutoFakeBold,12pt,doctor-professional]{bjtuthesis}
+\end{lstlisting}
+
+本模板默认设置为\textbf{学术型硕士}模板，请务必核对个人学位类型并修改！
+
+使用本模板时，请在\cs{chapters}目录下删改、新增并编辑论文的章节\cs{*.tex}文件；在\cs{figures}目录下上传论文的插图；在\cs{main.tex}文件内编辑论文的整体结构；在\cs{betterbib.bib}内编辑论文引用文献的条目信息。若有需求可修改\cs{bjtuthesis.cls}文件内的论文的版面结构设置。
+
+\subsection{论文基本信息字段填写}\label{论文基本信息字段填写}
+请直接在\cs{main.tex}文件中编辑以下代码字段：
+
+\begin{lstlisting}[language={[LaTeX]TeX}]
+    % 定义论文信息字段
+\newcommand{\ThesisTitle}{北京交通大学学术研究生学位论文 \LaTeX{}模板 \overleaf{} 平台专用ver.2025}  % 论文中文标题
+
+\newcommand{\ThesisEngTitle}{\overleaf{} Platform-specific \LaTeX{} Template of Beijing Jiaotong University Graduate Thesis ver.2025}    % 论文英文标题
+
+\newcommand{\AuthorName}{Zeto YEUNG}    % 作者姓名
+\newcommand{\StudentID}{20222025}       % 作者学号
+\newcommand{\Supervisor}{S. G. }        % 导师姓名
+\newcommand{\SupervisorTitle}{教授}       % 导师职称
+\newcommand{\DegreeType}{工学}            % 学位类别(专业学位无此行)
+\newcommand{\DegreeLevel}{硕士}           % 学位级别
+\newcommand{\Major}{\LaTeX{}}             % 学科专业或专业学位类别(领域)
+\newcommand{\ResearchDirection}{\overleaf{}与\XeTeX{}}   % 研究方向(专业学位无此行)
+\newcommand{\KeyWords}{关键词1；关键词2；关键词3}  % 中文关键词
+\newcommand{\CGCN}{中图分类号Z}           % 中图分类号，可在https://www.clcindex.com/ 查询
+\newcommand{\UDC}{分类号U}              % UDC分类号，可在https://udcsummary.info/php/index.php?lang=chi 查询
+\newcommand{\Funding}{基金名称}         % 论文资助(填写基金名称)
+\newcommand{\Lengthof}{3年}            % 学制(请如实填写)
+\newcommand{\Yearof}{2025}              % 学位授予年(请如实填写)
+\newcommand{\Reviewer}{评阅人姓名}       % 评阅人(可留空)
+\newcommand{\ChairmanofDC}{答辩委员会主席姓名}       % 答辩委员会主席
+\newcommand{\MembersofDC}{答辩委员会成员姓名}       % 答辩委员会成员
+\end{lstlisting}
+
+每一个行第二个花括号内内容改为论文准确信息，完成后将会在论文的封面页、题名页、学位论文数据集中自动调用，无需再次编辑\cs{cover.tex}、\cs{cover2.tex}、\cs{statement.tex}等文件。
 
 \subsection{封面页、学位论文版权使用授权书}
-需要编辑\cs{chapters}\cs{cover.tex}文件。封面页为第一部分，需\textbf{论文中、英文标题，作者，导师}四个字段。日期会自动生成，毋需编辑。学位论文版权使用授权书为第二部分，可编辑日期。签名建议脱离\LaTeX{}环境后插入或手写。
+对应\cs{chapters}\cs{cover.tex}文件。封面页为第一部分，\textbf{论文中、英文标题，作者，导师}信息字段编辑方法见\secref{论文基本信息字段填写}，毋需在此文件内编辑。学位论文版权使用授权书为第二部分，可编辑日期。签名建议脱离\LaTeX{}环境后插入或手写。
 
-\subsection{题名页}
-需要编辑\cs{chapters}\cs{cover2.tex}文件内\textbf{密级、论文中、英文标题，作者姓名、学号，导师姓名、职称，学位类别、级别，学科专业，研究方向}十一个字段。日期会自动生成，毋需编辑。
+\subsection{题名页(与博士答辩委员会名单)}
+对应\cs{chapters}\cs{cover2.tex}文件。\textbf{密级、论文中、英文标题，作者姓名、学号，导师姓名、职称，学位类别、级别，学科专业，研究方向}信息字段编辑方法见\secref{论文基本信息字段填写}，毋需在此文件内编辑。日期会自动生成，毋需编辑。
+
+\textbf{对于博士模板，答辩委员会名单也在此部分，请注意编辑\cs{chapters}\cs{cover2.tex}文件结尾的表格，硕士无需在意。}
+
+\subsection{作者简历及攻读学位期间取得的研究成果(与博士答辩决议书)}
+需要编辑\cs{chapters}\cs{Curriculum Vitae.tex}文件。
+
+书写格式与参考文献相同，页码后需注明该文章对应学位论文的章节序号。
+如已发表的学术论文被EI或SCI收录，请标明收录号；SCI论文一般应标注发表
+当年的影响因子；对已录用但尚未发表的学术论文，请注明是否EI或SCI刊源。
+
+\textbf{对于博士模板，答辩决议书也在此部分，请注意编辑\cs{chapters}\cs{Curriculum Vitae.tex}文件结尾的决议书章节，硕士无需在意。}
+
+\subsection{独创性声明、学位论文数据集}
+对应\cs{chapters}\cs{statement.tex}文件。独创性声明签名建议脱离\LaTeX{}环境后插入或手写。学位论文数据集信息字段编辑方法见\secref{论文基本信息字段填写}，毋需在此文件内编辑。
 
 \subsection{致谢}
 请在\cs{chapters}\cs{ack.tex}文件内编写。
@@ -60,8 +128,8 @@
     号、图题和页码；表的清单应有序号、表题和页码。 } % 需要删除
 \end{lstlisting}
 
-\subsection{术语表}
-本模板提供了术语表功能，用于整理论文中的物理常数、概念与缩写、数学符号等内容。请在\cs{chapters}\cs{nomenclature.tex}文件内编辑。基本语法有三种，分别为：
+\subsection{物理量名称及符号表}
+本模板提供了物理量名称及符号表(术语表)功能，用于整理论文中的物理常数、概念与缩写、数学符号等内容。请在\cs{chapters}\cs{nomenclature.tex}文件内编辑。基本语法有三种，分别为：
 
 \begin{lstlisting}[language={[LaTeX]TeX}]
     \nomenclature[类别]{术语}{描述}
@@ -71,7 +139,7 @@
 
 类别包含：A：物理常数；B：概念与缩写；C：数学符号。强制排序编号为数值，如\texttt{01}，可留空。对特殊物理常数可添加其常数数值与单位。
 
-若有需求，可进入\cs{bjtumaster.cls}文件内编辑术语类别，具体定义语句为：
+若有需求，可进入\cs{bjtuthesis.cls}文件内编辑术语类别，具体定义语句为：
 \begin{lstlisting}[language={[LaTeX]TeX}]
     \renewcommand\nomgroup[1]{%
         \item[\hei
@@ -163,19 +231,10 @@
     \item \textbf{灰域行者：}切换次元3秒钟
 \end{enumerate}
 
-\subsection{作者简历及攻读学位期间取得的研究成果}
-需要编辑\cs{chapters}\cs{Curriculum Vitae.tex}文件。
-
-书写格式与参考文献相同，页码后需注明该文章对应学位论文的章节序号。
-如已发表的学术论文被EI或SCI收录，请标明收录号；SCI论文一般应标注发表
-当年的影响因子；对已录用但尚未发表的学术论文，请注明是否EI或SCI刊源。
-
-\subsection{独创性声明、学位论文数据集}
-独创性声明签名建议脱离\LaTeX{}环境后插入或手写。学位论文数据集需要编辑\cs{chapters}\cs{statement.tex}文件内表格信息。
-
+\clearpage
 \section{论文中的图、表、引用等多元内容的使用}
 
-\subsection{插图}
+\subsection{插图}\label{插图}
 图片通常在figure环境中进行插入。建议矢量图片使用PDF或SVG格式，比如数据可视化的绘图；建议非矢量图片使用PNG或JPG格式插入。注意，\LaTeX{}不支持TIFF格式；EPS格式已经过时。
 
 图应有“自明性”。插图应与文字紧密配合，文图相符，内容正确。选图要力求精练，插图、照片应完整清晰。
@@ -274,18 +333,18 @@
 
 \begin{table}[H]\wuhao
   \centering
-  \renewcommand\arraystretch{1.0} % 行距
+  \renewcommand\arraystretch{0.8} % 行距
   \bitabcaption{三线表示例\cite{TUN2025LaTeXThesisTe}}{Example Table\cite{TUN2025LaTeXThesisTe}}
   \begin{tabular}{ll}
     \toprule
     文件名          & 描述                         \\
     \midrule
-    bjtumaster.cls   & 模板文件                     \\
+    bjtuthesis.cls   & 模板文件                     \\
     main.tex & 论文主文档    \\
     chapters & 论文章节存放目录  \\
     figures & 论文插图存放目录        \\
     betterbib.bib & 论文参考文献库(BibLaTeX)        \\
-    gbt7714-numerical.bst & BibTeX 参考文献表国标样式文件    \\
+    overarrows.sty & 向量符号拓展宏包    \\
     bibspacing.sty & 参考文献间距调整宏包  \\
     \bottomrule
   \end{tabular}
@@ -312,7 +371,7 @@
     表头 1 & 表头 10 & 表头 11 & 表头 100 \\
     \midrule
   \endfirsthead
-    \caption*{续表~\thetable\quad {跨页长表格}\vspace{-0.8cm}} \\
+    \caption*{续表~\thetable\quad {跨页长表格}\vspace{-0.5cm}} \\
     \caption*{Continued Table~\thetable\quad {Long Tables Across Pages}} \\
     \toprule
     表头 1 & 表头 10 & 表头 11 & 表头 100 \\
@@ -337,24 +396,24 @@
   Row F & & & \\
   Row 10 & & & \\
   Row 11  & & & \\
-  % Row 12  & & & \\
-  % Row 13  & & & \\
-  % Row 14 & & & \\
-  % Row 15 & & & \\
-  % Row 16 & & & \\
-  % Row 17  & & & \\
-  % Row 18  & & & \\
-  % Row 19  & & & \\
-  % Row 1A & & & \\
-  % Row 1B & & & \\
-  % Row 1C & & & \\
-  % Row 1D  & & & \\
-  % Row 1E  & & & \\
-  % Row 1F  & & & \\
-  % Row 20 & & & \\
+  Row 12  & & & \\
+  Row 13  & & & \\
+  Row 14 & & & \\
+  Row 15 & & & \\
+  Row 16 & & & \\
+  Row 17  & & & \\
+  Row 18  & & & \\
+  Row 19  & & & \\
+  Row 1A & & & \\
+  Row 1B & & & \\
+  Row 1C & & & \\
+  Row 1D  & & & \\
+  Row 1E  & & & \\
+  Row 1F  & & & \\
+  Row 20 & & & \\
 \end{longtable}
 
-本文非常不建议手搓表格代码，建议使用第三方插件如Create LaTeX tables online\cite{TabCreateLaTeXta}制作表格再拷贝进\LaTeX{}进行进一步处理，故不介绍普通表格插入命令。
+本文非常不建议手搓表格代码，强烈建议使用第三方插件如Create LaTeX tables online\cite{TabCreateLaTeXta}制作表格再拷贝进\LaTeX{}进行进一步处理，故不介绍普通表格插入命令。
 
 若非不可抗力，尽量避免跨页长表格。对于跨页长表格，本模板为了实现中英文双语表题且在图清单内正常显示，采用了非常拙劣的办法。建议查看代码理解，具体步骤为：
 \begin{enumerate}
@@ -579,7 +638,7 @@ hello()
 
 新版本国家标准与旧版最主要的区别\cite{XuYu2016GB77142015YuGB}在于：新增了DOI号，新增了档案$[\mathrm{A}]$、舆图$[\mathrm{CM}]$、数据集$[\mathrm{DS}]$、其他$[\mathrm{Z}]$四类文献类型、用汉语拼音书写的中国著者不可缩写、标准名与标准号调换顺序、去除专利国别等。
 
-\textbf{虽然变化如此之多，但视觉区别最大的是新增了DOI号。建议在Zotero导出前先删去“DOI号”字段(或修改gbt7714-numerical.bst文件)。同时建议对期刊、会议论文以及图书等非电子渠道独占资源删去“url”字段，虽符合旧国标与新国标，但有老师会觉得不顺眼，免得起争执。}
+\textbf{虽然变化如此之多，但视觉区别最大的是新增了DOI号。建议在Zotero导出前先删去“DOI号”字段。同时，虽符合旧国标与新国标，但有老师会觉得不顺眼，免得起争执，本文自动隐藏期刊、会议论文以及图书等非电子渠道独占资源删去“url”字段。}
 
 \subsubsection{论文内对图、表、公式、算法、章、节的引用}
 
@@ -684,3 +743,4 @@ hello()
 
             {\textbf{eg:\qquad }使用$\left[ \sinh ^2u+\left( \cosh u-1 \right) ^2 \right] ^{1/2}$，避免使用$\sqrt{ \sinh ^2u+\left( \cosh u-1 \right) ^2 }.$}
 \end{enumerate}
+

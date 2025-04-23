@@ -1,5 +1,13 @@
-\chapter*{作者简历及攻读硕士学位期间取得的研究成果}
-\markboth{作者简历及攻读硕士学位期间取得的研究成果}{}
+\ifmaster
+  \chapter*{作者简历及攻读硕士学位期间取得的研究成果}
+  \markboth{作者简历及攻读硕士学位期间取得的研究成果}{}
+  \addcontentsline{toc}{chapter}{作者简历及攻读硕士学位期间取得的研究成果}
+\else
+  \chapter*{作者简历及攻读博士学位期间取得的研究成果}
+  \markboth{作者简历及攻读博士学位期间取得的研究成果}{}
+  \addcontentsline{toc}{chapter}{作者简历及攻读博士学位期间取得的研究成果}
+\fi
+
 
 \textbf{一、作者简历}
 
@@ -19,7 +27,7 @@ Zeto YEUNG，X，中国人，出生于千禧年。
 \textbf{二、发表论文}
 
 \begin{enumerate}[label={[}\arabic*{]}]
-	\item Yuki ASANO. Yuki ASANO的硕士生涯[Z]. 北京: 我家出版社, 2022: 22.
+	\item Zeto YEUNG. Zeto YEUNG的硕士生涯[Z]. 北京: 我家出版社, 2022: 22.
 \end{enumerate}
 
 \vspace{18pt}
@@ -37,3 +45,27 @@ Zeto YEUNG，X，中国人，出生于千禧年。
 \begin{enumerate}[label={[}\arabic*{]}]
 	\item Zeto YEUNG. 22$\sim$24岁的Zeto YEUNG: 我家,MH00222324[P].2025-02-25.
 \end{enumerate}
+
+\ifdoctor
+  \chapter*{答辩决议书}
+  \markboth{答辩决议书}{}
+  \addcontentsline{toc}{chapter}{答辩决议书}
+
+X士学位论文“XXXXXXX”针对XXXXXXX问题（需求），开展了XXXXXXX研究，选题具有一定的理论意义和工程应用价值。论文取得以下主要研究成果：
+
+1.	XXXXXXX。
+
+2.	XXXXXXX。
+
+3.	XXXXXXX。
+
+论文内容充实、写作规范、条理清晰、文笔流畅，表明作者已掌握本学科较坚实的基础理论和较深入的专门知识，具有一定的独立从事科研工作的能力。答辩过程中表述清楚，回答问题基本正确。
+
+经答辩委员会无记名投票表决，一致同意通过论文答辩，并建议授予XXX同学X学X士学位。
+
+
+
+
+
+  
+\fi

@@ -1,5 +1,5 @@
 %%
-%% This is file `bjtumaster.cls',
+%% This is file `bjtuthesis.cls',
 %%
 %% 1. 本模板的发布遵守 LaTeX Project Public License，使用前请认真阅读协议内容。
 %%
@@ -20,7 +20,6 @@
 %%    仅保证在 Overleaf 平台以 XeTeX 2024 编译器可正常使用，其余平台请自行 Debug。
 %%    其格式已尽量与研究生院所规定的格式保持一致，
 %%    但不保证格式审查时一定能通过，如出现格式问题，与本模板制作者概无关系。
-%%    若有博士研究生、本科生使用请自行按照研究生院标准模板进行微调。
 %%
 %% 6. 任何个人或组织以本模板为基础进行修改、扩展而生成的新的专用模板，
 %%    请严格遵守 LaTeX Project Public License 协议。
@@ -38,7 +37,23 @@
 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 % 提供文档类
-\ProvidesClass{bjtumaster}[2025/03/17 北京交通大学学硕学位论文模板 ver.2025]
+\ProvidesClass{bjtuthesis}[2025/04/23 北京交通大学研究生学位论文模板 ver.2025.3]
+
+
+%%%%%%%%%%% 学位类型选项判断 %%%%%%%%%%%%%%%%%%%%
+
+\newif\ifmaster
+\newif\ifdoctor
+\newif\ifacademic
+\newif\ifprofessional
+
+\DeclareOption{master-academic}{\mastertrue\doctorfalse\academictrue\professionalfalse}
+\DeclareOption{master-professional}{\mastertrue\doctorfalse\academicfalse\professionaltrue}
+\DeclareOption{doctor-academic}{\masterfalse\doctortrue\academictrue\professionalfalse}
+\DeclareOption{doctor-professional}{\masterfalse\doctortrue\academicfalse\professionaltrue}
+
+\ProcessOptions\relax
+
 % 加载 `book` 文档类
 \LoadClass[12pt,a4paper,openany]{book}
 
@@ -54,11 +69,11 @@
 \RequirePackage{overpic}     % 图片标注
 \RequirePackage{svg}         % 支持SVG图像
 \RequirePackage{booktabs, multirow}  % 表格
-
+\RequirePackage[backend=biber,style=gb7714-2015]{biblatex}
 \RequirePackage[T1]{fontenc} % 字体编码
 \RequirePackage{geometry}    % 页边距
 \RequirePackage{setspace}    % 行间距
-\RequirePackage{gbt7714}     % 参考文献格式
+% \RequirePackage{gbt7714}     % 参考文献格式
 \RequirePackage{makecell}    % 表格单元格换行
 \RequirePackage{fontspec}    % 字体设置
 \RequirePackage{fancyhdr}    % 页眉页脚
@@ -86,6 +101,7 @@
 \RequirePackage{algorithm}      % 算法环境
 \RequirePackage{algorithmic}    % 算法环境
 
+
 \RequirePackage{ifthen,calc}
 % \RequirePackage{txfonts}
 % \RequirePackage{thutils}
@@ -94,6 +110,11 @@
 \RequirePackage{threeparttable}
 \RequirePackage{notoccite}     % 防止清单打乱参考文献编号
 \RequirePackage{{perpage}}     % 快捷设置计数器
+
+\RequirePackage{overarrows}     % 向量箭头扩展
+\NewOverArrowCommand{\overrightharpoon}{%
+end=\rightharpoonup}
+
 %%%%%%%%%页面样式与页眉页脚
 
 % 设置页面格式
@@ -115,7 +136,26 @@
 }
 % \geometry{showframe}      % 查看页面框
 
+% 设置论文类型对应页眉标题
+\newcommand{\degreeinfo}{%
+    \ifmaster
+        \ifacademic
+            硕士学位论文
+        \else
+            硕士专业学位论文
+        \fi
+    \else
+        \ifacademic
+            博士学位论文
+        \else
+            博士专业学位论文
+        \fi
+    \fi
+}
 
+\newcommand{\bjtu}{北京交通大学}
+
+% 设置页眉页脚
 
 % 第1部分：\coverpages
 % 每个章节从奇数页开始。
@@ -147,7 +187,7 @@
 \fancypagestyle{absntocstyle}{%
   \fancyhf{} % 清空页眉页脚
   \fancyhead[CO]{\hspace{-6pt}\wuhao \leftmark} % 奇数页页眉居中显示章节名
-  \fancyhead[CE]{\hspace{-6pt}\wuhao 北京交通大学硕士学位论文} % 偶数页页眉居中显示固定文本
+  \fancyhead[CE]{\hspace{-6pt}\wuhao \bjtu\degreeinfo} % 偶数页页眉居中显示固定文本
   \fancyfoot[C]{\hspace{-6pt}\wuhao\thepage} % 页脚居中显示页码
   \renewcommand{\headrulewidth}{0.4pt} % 页眉下横线
 }
@@ -163,7 +203,7 @@
 \fancypagestyle{mainstyle}{%
   \fancyhf{} % 清空页眉页脚
   \fancyhead[CO]{\hspace{-6pt}\wuhao \leftmark} % 奇数页页眉居中显示章节名
-  \fancyhead[CE]{\hspace{-6pt}\wuhao 北京交通大学硕士学位论文} % 偶数页页眉居中显示固定文本
+  \fancyhead[CE]{\hspace{-6pt}\wuhao \bjtu\degreeinfo} % 偶数页页眉居中显示固定文本
   \fancyfoot[C]{\hspace{-6pt}\wuhao \thepage} % 页脚居中显示页码
   \renewcommand{\headrulewidth}{0.4pt} % 页眉下横线
 }
@@ -272,11 +312,11 @@
 % \setCJKfamilyfont{kai}{TW-Kai} % 楷体
 
 \setCJKmainfont[
-  BoldFont = {Noto Serif CJK SC Bold},
-  ItalicFont = {AR PL UKai CN}
-]{Noto Serif CJK SC}
-\setCJKsansfont{Noto Sans CJK SC}
-\setCJKmonofont{Noto Sans Mono CJK SC}
+  BoldFont = {Noto Serif CJK SC Bold},  % 主字体的增加字重字形
+  ItalicFont = {AR PL UKai CN}  % 主字体的意大利字形
+]{Noto Serif CJK SC}    % 主字体
+\setCJKsansfont{Noto Sans CJK SC}   % 主无衬线字体
+\setCJKmonofont{Noto Sans Mono CJK SC}  %主等宽字体
 \setCJKfamilyfont{song}{Noto Serif CJK SC} % 宋体
 \setCJKfamilyfont{hei}{Noto Sans CJK SC} % 黑体
 \setCJKfamilyfont{fs}{cwTeXFangSong} % 仿宋
@@ -456,6 +496,8 @@
 \renewcommand{\cfttabdotsep}{1} % 点号间距
 
 % 图和表清单标题样式
+\renewcommand{\listfigurename}{图清单}
+\renewcommand{\listtablename}{附表清单}
 \renewcommand{\cftloftitlefont}{\hfill\sanhao\heiti} % 图清单标题
 \renewcommand{\cftafterloftitle}{\hfill}
 \renewcommand{\cftlottitlefont}{\hfill\sanhao\heiti} % 表清单标题
@@ -601,7 +643,7 @@
 }
 
 
-\renewcommand{\nomname}{符号与缩略语说明}   % 标题
+\renewcommand{\nomname}{物理量名称及符号表}   % 标题
 \setlength{\nomitemsep}{-5pt} % 取消术语间距
 \renewcommand{\nomlabelwidth}{2.5cm}  % 术语部分宽度
 \renewcommand{\nomentryend}{\hspace{1cm}}  % 术语与描述的额外间距
@@ -617,10 +659,10 @@
 
 
 %%%%%%%%%%%%%%%%%参考文献与附录格式%%%%%%%%%%%%%%%5
-\RequirePackage{bibspacing}
-\setlength{\bibspacing}{\baselineskip}
-\renewcommand{\refname}{参考文献}
-\patchcmd{\thebibliography}{\refname}{}{}{}
+% \RequirePackage{bibspacing}
+% \setlength{\bibspacing}{\baselineskip}
+% \renewcommand{\refname}{参考文献}
+% \patchcmd{\thebibliography}{\refname}{}{}{}
 
 % 附录格式定义
 \newcommand{\bjtu@appendix}{%
@@ -637,6 +679,48 @@
 }
 \DeclareRobustCommand{\bjtuappendix}{\bjtu@appendix}
 
+
+% 过滤掉 article、book、inproceedings、thesis 类型中的 url 和 urldate 字段
+
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \pertype{article}
+      \step[fieldset=url, null]
+      \step[fieldset=urldate, null]
+      \step[fieldset=eprint, null]
+      \step[fieldset=eprinttype, null]
+    }
+    \map{
+      \pertype{book}
+      \step[fieldset=url, null]
+      \step[fieldset=urldate, null]
+      \step[fieldset=eprint, null]
+      \step[fieldset=eprinttype, null]
+    }
+    \map{
+      \pertype{inproceedings}
+      \step[fieldset=url, null]
+      \step[fieldset=urldate, null]
+      \step[fieldset=eprint, null]
+      \step[fieldset=eprinttype, null]
+    }
+    \map{
+      \pertype{thesis}
+      \step[fieldset=url, null]
+      \step[fieldset=urldate, null]
+      \step[fieldset=eprint, null]
+      \step[fieldset=eprinttype, null]
+    }
+  }
+}
+
+% 设置参考文献区域的字号和行距
+\renewcommand*{\bibfont}{%
+  \fontsize{10.5pt}{13pt}\selectfont
+}
+
+\setlength{\bibitemsep}{0pt}  % 文献条目之间的段距
 
 %%%%%%%%%%快捷引用%%%%%%%%%%%%
 \gdef \ass{假设}
@@ -657,7 +741,7 @@
 \newcommand{\algref}[1]{算法 \ref{#1} }
 \newcommand{\chptref}[1]{第 \ref{#1} 章}
 \newcommand{\secref}[1]{第 \ref{#1} 节}
-\newcommand{\appref}[1]{附录 \ref{#1} }
+\newcommand{\appref}[1]{\ref{#1}}
 
 % % 调整 \paragraph 的格式和间距
 % \titleformat{\paragraph}
@@ -674,6 +758,7 @@
 % 重新定义 \mypara
 % \newcommand{\mypara}[1]{\paragraph{\bfseries \qquad #1 \; \quad}}
 \newcommand{\mypara}[1]{\vspace{-1.1em}\paragraph{\qquad #1 \; }}
+
 
 
 %%%%%%%%%%%%%%%% 手动定义 \XeTeX 和 \overleaf 标志

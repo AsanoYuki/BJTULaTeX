@@ -1,0 +1,57 @@
+\chapter{本地编译常见说明}
+
+本模板本意为开发用于\overleaf 环境编译使用，但不排除有同学有本地编译需求或其它在线\LaTeX{}平台编译需求。特将几个在VSCode环境下编译报错重点以及修改方式进行说明。
+
+\section{编译器Compiler错误导致编译失败}
+本模板仅支持\XeTeX{} 编译器编译，不支持pdf\LaTeX{} 等旧时代编译器，请修改编译器设置(如通过修改VSCode的*.json文件。)
+
+\section{字体问题}
+
+\textbf{问题原因：}本模板采用\overleaf 平台内置的开源可商用字体。部分字体可能计算机本地未安装，因此无法编译。
+
+\textbf{修复方法：}查看计算机已安装字体，并将\cs{bjtuthesis.cls}中的字体设置改为本地已有字体的名称。如将\cs{bjtuthesis.cls}中的280-289行从
+
+\begin{lstlisting}[language={[LaTeX]TeX}]
+    \setCJKmainfont[
+  BoldFont = {Noto Serif CJK SC Bold},  % 主字体的增加字重字形
+  ItalicFont = {AR PL UKai CN}  % 主字体的意大利字形
+]{Noto Serif CJK SC}    % 主字体
+\setCJKsansfont{Noto Sans CJK SC}   % 主无衬线字体
+\setCJKmonofont{Noto Sans Mono CJK SC}  %主等宽字体
+\setCJKfamilyfont{song}{Noto Serif CJK SC} % 宋体
+\setCJKfamilyfont{hei}{Noto Sans CJK SC} % 黑体
+\setCJKfamilyfont{fs}{cwTeXFangSong} % 仿宋
+\setCJKfamilyfont{kai}{AR PL UKai CN} % 楷体
+\end{lstlisting}
+
+\noindent 直接修改为
+\begin{lstlisting}[language={[LaTeX]TeX}]
+    \setCJKmainfont[
+  BoldFont = {宋体},  % 主字体的增加字重字形
+  ItalicFont = {楷体}  % 主字体的意大利字形
+]{宋体}    % 主字体
+\setCJKsansfont{宋体}   % 主无衬线字体
+\setCJKmonofont{黑体}  %主等宽字体
+\setCJKfamilyfont{song}{宋体} % 宋体
+\setCJKfamilyfont{hei}{黑体} % 黑体
+\setCJKfamilyfont{fs}{仿宋} % 仿宋
+\setCJKfamilyfont{kai}{楷体} % 楷体
+\end{lstlisting}
+
+可能导致显示效果不及预期，推荐使用思源宋体、更纱黑体等具有可变字重的字体以及开源可商用无版权风险的字体。(如常见的「微软雅黑」为不可商用的具有版权风险的字体。)
+
+\section{*.svg格式的矢量图导致的编译错误}
+
+\textbf{问题原因：}\secref{插图}一节中介绍了如何插入*.svg格式的矢量图，但其原理依旧是先将*.svg在内部转换为*.pdf再进行编译。部分编译环境如VSCode可能需要：
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 修改*.json文件；
+    \item 安装第三方插件；
+    \item 将*.svg输出的*.pdf文件，其输出路径重定向指\cs{figure}目录在本地的绝对目录。
+\end{enumerate}
+
+\textbf{解决方法：}
+
+方案一：建议将*.svg矢量图转换为*.pdf格式进行调用，避免直接调用*.svg矢量图。或直接转换为位图进行调用。均可正常进行编译。
+
+方案二：对「问题原因」中所述的问题自行进行修复。
